@@ -1,0 +1,1176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100609">
+<title>For Aparna ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #100609;
+  --red: #b91f3c;
+  --bright: #ed526d;
+  --pink: #f5a6b6;
+  --white: #fff0f2;
+  --muted: #bda6ad;
+  --card: #1c0c12;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .13;
+  background-image: radial-gradient(#fff 0.7px, transparent 0.7px);
+  background-size: 7px 7px;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+.page {
+  display: none;
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  padding: 35px 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fade .65s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  max-width: 570px;
+  margin: auto;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(43px, 11vw, 76px);
+  line-height: 1.12;
+}
+
+h1 span, h2 span {
+  color: var(--bright);
+  font-style: italic;
+}
+
+h2 {
+  font-size: clamp(32px, 8vw, 49px);
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  max-width: 440px;
+  margin: 20px auto 30px;
+}
+
+button {
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: white;
+  padding: 14px 27px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: transparent;
+  box-shadow: 0 0 25px #b91f3c65;
+  transform: translateY(-3px);
+}
+
+button.secondary {
+  background: transparent;
+  border-color: #773044;
+  color: var(--pink);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.symbol {
+  font-size: 53px;
+  color: var(--bright);
+  margin-bottom: 25px;
+  animation: float 3s ease-in-out infinite;
+}
+
+input {
+  width: 100%;
+  max-width: 280px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #68273a;
+  background: #1e0d13;
+  color: white;
+  text-align: center;
+  outline: none;
+  letter-spacing: 5px;
+  margin: 15px 0;
+}
+
+input:focus {
+  border-color: var(--pink);
+}
+
+.error {
+  color: #ff8199;
+  font-size: 12px;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+.divider {
+  height: 1px;
+  width: 55px;
+  background: var(--red);
+  margin: 25px auto;
+}
+
+/* GIFTS */
+
+.gifts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin: 35px auto;
+}
+
+.gift {
+  background: var(--card);
+  border: 1px solid #562033;
+  padding: 20px 7px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gift:hover {
+  transform: translateY(-8px);
+  border-color: var(--pink);
+  background: #32101c;
+}
+
+.gift .emoji {
+  font-size: 43px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.gift p {
+  font-size: 11px;
+  color: var(--pink);
+  letter-spacing: 1px;
+}
+
+/* LETTERS */
+
+.letter-card {
+  background: #f6e7e7;
+  color: #34131d;
+  padding: 30px 24px;
+  border-radius: 5px;
+  text-align: left;
+  line-height: 2;
+  box-shadow: 0 15px 40px #0008;
+  margin: 30px auto;
+  max-width: 470px;
+  animation: fade .8s ease;
+}
+
+.letter-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: #a31d39;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.letter-card p {
+  font-size: 13px;
+  margin-bottom: 15px;
+  white-space: pre-line;
+}
+
+/* OPEN WHEN CARDS */
+
+.open-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 35px auto;
+}
+
+.open-card {
+  min-height: 125px;
+  padding: 20px 12px;
+  border: 1px solid #63263a;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #291019, #15090d);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: .3s;
+}
+
+.open-card:hover {
+  background: #401522;
+  transform: scale(1.03);
+}
+
+.open-card .emoji {
+  font-size: 29px;
+}
+
+.open-card p {
+  font-size: 12px;
+  color: var(--pink);
+  line-height: 1.5;
+}
+
+/* PORTRAIT */
+
+.portrait {
+  width: min(85%, 350px);
+  max-height: 60svh;
+  object-fit: contain;
+  border: 7px solid #f6e7e7;
+  box-shadow: 0 0 35px #c5264535;
+  margin: 25px auto;
+  display: block;
+}
+
+/* REMINDERS */
+
+.reminders {
+  text-align: left;
+  display: grid;
+  gap: 12px;
+  margin: 30px auto;
+}
+
+.reminder {
+  padding: 17px;
+  background: #1e0c13;
+  border-left: 3px solid var(--red);
+  border-radius: 5px;
+  color: var(--pink);
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+}
+
+.reminder small {
+  display: block;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  margin-top: 7px;
+  line-height: 1.7;
+}
+
+/* CONFETTI */
+
+.confetti {
+  position: fixed;
+  z-index: 100;
+  top: -20px;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 420px) {
+  .gifts { gap: 7px; }
+  .gift { padding: 16px 4px; }
+  .gift .emoji { font-size: 35px; }
+  .gift p { font-size: 9px; }
+  .open-grid { gap: 9px; }
+  .open-card { padding: 15px 7px; }
+  .letter-card { padding: 24px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: PASSWORD -->
+
+<section class="page active" id="page1">
+<div class="content">
+
+  <div class="symbol">♥</div>
+  <div class="eyebrow">A little secret place</div>
+
+  <h1>Before you<br><span>enter...</span></h1>
+
+  <p class="description">
+    This little corner of the internet is made
+    exclusively for someone special.
+    But first, prove that it's really you.
+  </p>
+
+  <input id="password" type="password"
+  placeholder="ENTER PASSWORD" maxlength="5"
+  inputmode="numeric"
+  onkeydown="if(event.key==='Enter') checkPassword()">
+
+  <div class="error" id="passwordError"></div>
+
+  <button onclick="checkPassword()">UNLOCK MY SURPRISE ♡</button>
+
+  <p class="description" style="font-size:10px;letter-spacing:3px;">
+    ONLY FOR APARNA
+  </p>
+
+</div>
+</section>
+
+
+<!-- PAGE 2: WELCOME -->
+
+<section class="page" id="page2">
+<div class="content">
+
+  <div class="eyebrow">You've made it inside</div>
+  <div class="symbol">♡</div>
+
+  <h1>Here's a surprise<br>for <span>Aparna.</span></h1>
+
+  <div class="divider"></div>
+
+  <p class="description">
+    My darlo. My shawty. My favourite prsn.
+    <br><br>
+    Soooo, I made a tiny little corner of the internet
+    just for your bday. Bcuz unfortunaly i can't give handmade gift.
+    <br><br>
+    Don't get too emotional yet.
+    We've got a whole journey ahead.
+  </p>
+
+  <button onclick="go(3)">CONTINUE ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 3: EXCITED? -->
+
+<section class="page" id="page3">
+<div class="content">
+
+  <div class="symbol">♥</div>
+
+  <div class="eyebrow">Be honest now</div>
+
+  <h1>Are you<br><span>excited?</span></h1>
+
+  <p class="description">
+    I spent my precious time making this.
+    The least you can do is be excited.
+  </p>
+
+  <div class="buttons">
+    <button onclick="go(4)">YESSS!!</button>
+    <button class="secondary" onclick="go(31)">NO.</button>
+  </div>
+
+</div>
+</section>
+
+
+<!-- PAGE 3B: HOW DARE YOU -->
+
+<section class="page" id="page31">
+<div class="content">
+
+  <div class="symbol">ಠ_ಠ</div>
+
+  <div class="eyebrow">EXCUSE ME?</div>
+
+  <h1>HOW <span>DARE</span><br>YOU.</h1>
+
+  <p class="description">
+    HELLO??? I literally made a whole website
+    for you and this is the reaction I get?
+    <br><br>
+    Unbelievable. Disrespectful.
+    Absolutely unacceptable behaviour.
+  </p>
+
+  <button onclick="go(3)">OKAY OKAY I'M EXCITED</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 4: CHOOSE A GIFT -->
+
+<section class="page" id="page4">
+<div class="content">
+
+  <div class="eyebrow">Something special awaits</div>
+
+  <h2>Choose your <span>gift.</span></h2>
+
+  <p class="description">
+    Three little presents.
+    Three different surprises.
+    Choose whichever your heart desires.
+  </p>
+
+  <div class="gifts">
+
+    <div class="gift" onclick="chooseGift(1)">
+      <span class="emoji">🎁</span>
+      <p>GIFT NO. 01</p>
+    </div>
+
+    <div class="gift" onclick="chooseGift(2)">
+      <span class="emoji">🎀</span>
+      <p>GIFT NO. 02</p>
+    </div>
+
+    <div class="gift" onclick="chooseGift(3)">
+      <span class="emoji">🖤</span>
+      <p>GIFT NO. 03</p>
+    </div>
+
+  </div>
+
+  <p class="description" style="font-size:11px;">
+    Choose carefully. Or don't. It's your birthday.
+  </p>
+
+</div>
+</section>
+
+
+<!-- PAGE 5: GIFT LETTER 1 -->
+
+<section class="page" id="page5">
+<div class="content">
+
+  <div class="eyebrow">A little something for you</div>
+
+  <h2>You opened <span>gift one.</span></h2>
+
+  <div class="letter-card">
+    <h3>Dear Aparna, ♡</h3>
+
+    <p>
+      HAPPY BIRTHDAYYY!!
+
+   
+Okay, so this is your first little letter.
+
+I hope your day is filled with happiness, laughter and all the beautiful things ya have been dreaming of. I hope life gives ya everything your heart wishes for because honestly, ya deserve so much happiness. I'm so lucky to have ya in my life.
+
+Ya mean a lot to me, and I genuinely can't express myh feelings in words. Like, how am I supposed to explain everything to a person who has become such an important part of myh life? Sometimes I wonder how two random people can become this close. How someone can slowly become a part of your everyday routine without even realising it.
+
+I couldn't even imagine a day without ya. And yeah, I know I've ghosted ya hundreds of times, but haan, meri bhool samajh ke maaf kar de. I know I'm not the easiest person to deal with. YK, you're literally the best because meri jaisi ladki ko jhel pa rahi ho. Agar mein tumhari jagah hoti toh shayad kabka give up kar diya hota. But ya kept trying, and I genuinely appreciate that more than I can explain.
+
+I know I have a lot of flaws. Mujhe bohot ghussa aata hai, and ghusse mein kabhi-kabhi kuch bhi bol deti hun. Most of the time, mera ghussa mere loved ones par hi nikal jaata hai. I know it's my fault, and I'm not trying to justify it.
+
+Sometimes jab bhi kuch hota hai, I start blaming myself for everything. I overthink, convince myself that I'm ruining everyone's life and then the first person who comes to my mind is YOU. I start thinking that maybe you'd be happier without me, maybe I'm just making things difficult for ya, and then I disappear.
+
+But the truth is, tumhare bina rehna bhi mere liye easy nahi hota. I disappear because I don't know how to deal with myh own emotions, and then I come back because I miss talking to ya. I know this isn't fair to ya, and I'm genuinely sorry.
+
+I never wanted ya to feel like someone I could leave whenever things got difficult and return to whenever I missed ya. Ya deserved consistency, not confusion. Ya deserved someone who could communicate instead of disappearing. I'm sorry for every time I made ya question your importance in myh life.
+
+And especially for all the drama that happened around New Year. I wish I had handled things differently. I wish I had listened better, understood ya better and thought before reacting. I can't undo those moments, but I can accept that I was wrong.
+
+There's something else I want ya to know. There have been days when life felt so overwhelming that I didn't know how to deal with anything. And somehow, talking to ya, remembering our stupid conversations or even thinking about our memories made those days feel a little less lonely. Maybe ya never realised how much comfort those little things gave me, but they genuinely did.
+
+I don't think I ever thanked ya enough for all the times ya listened to myh nonsense, tolerated myh mood swings, entertained myh random thoughts and stayed around through all myh weird phases.
+
+And can we talk about our memories for a second?
+
+I hope ya remember all those random conversations that started with absolutely nothing and somehow lasted forever. All the stupid jokes, the unnecessary gossip, the random updates, the moments when we laughed at the most unserious things and all those little conversations that nobody else would understand.
+
+I wish I could collect every single one of those moments and keep them somewhere safe. Because sometimes the things we consider ordinary while living them become the things we miss the most later. saved more conversations and appreciated more little moments. I wish I had realised that someday I might look back at these days and miss even the most random things about them.
+
+And honestly, I don't want our friendship to become just another memory. I want more conversations, more stupid jokes, more random updates, more arguments over absolutely nothing and more memories that we'll laugh about years later.
+
+I want us to grow, change, make mistakes, understand each other better and still have a friendship where we can be ourselves without constantly being scared of losing each other.
+
+I know I'm not perfect, and I'm not promising that I'll magically become a completely different person overnight. But I genuinely want to work on myself, communicate better and stop letting myh emotions hurt the people I love.
+
+I don't want to keep disappointing ya and then expecting a sorry to fix everything. I want myh actions to show that I actually mean what I say.
+
+Sometimes I just think, what if Aparna meri life mein kabhi aayi hi nahi hoti? How many memories would I have missed? How many conversations would never have happened? How many ordinary days would have stayed ordinary?
+
+And I'm genuinely grateful that our paths crossed.
+
+But if there's one thing I want ya to know, it's that ya were never insignificant to me. Our friendship was never meaningless. Ya were a person I genuinely cared about, and a part of myh life that I will always remember.
+
+I hope life gives ya beautiful people, genuine happiness and countless reasons to smile. I hope ya never have to question whether you're valued. I hope ya achieve everything you've ever dreamed of, even the things ya haven't told anyone about yet.
+
+And even if life takes us in different directions someday, I hope we never look back at our friendship and regret having each other in our lives.
+
+I know I'm sounding cringe and corny, but koi na, tu toh meri hi hai. Tere saamne toh weirdo hi rahungi mein. I don't have to act cool or pretend to be someone else around ya, and that's one of the things I genuinely love about our bond.
+
+Thank ya for being Aparna. Thank ya for being a part of myh story. Thank ya for every little memory that I might not have appreciated enough while it was happening.
+
+I don't know how to end this letter because honestly, I could keep writing about ya and still feel like I've left a thousand things unsaid.
+
+So I'll just say this:
+
+I love ya, idiot. Please keep being the crazy, wonderful person that ya are. And I hope we get to make a million more memories together.
+
+**Lobe ya so so much, myh Aparna.**
+
+Mwahhhhh.
+
+   
+ 
+    </p>
+  </div>
+
+  <button onclick="go(8)">NEXT PAGE ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 6: GIFT LETTER 2 -->
+
+<section class="page" id="page6">
+<div class="content">
+
+  <div class="eyebrow">Another little surprise</div>
+
+  <h2>You opened <span>gift two.</span></h2>
+
+  <div class="letter-card">
+    <h3>One thing I want you to know...</h3>
+
+    <p>
+      # To my Aparna, my shawty
+
+Aparna, I genuinely hope you realise how important and special you are to mei.
+
+Tumhe yaad bhi hai humari friendship kaise start hui thi? Bas ek PW ki random talk se. Mujhe aaj bhi yaad hai woh raat jis din hum dono apne ex-best friends ke baare mein baat kar rahe the. Who knew ki ek random conversation se shuru hui baat ek itni beautiful friendship ban jayegi? Uske baad hum dono best friends ban gaye, and honestly, maine kabhi imagine bhi nahi kiya tha ki mein kabhi ek online bestie banaungi.
+
+Like, what do you mean ek random person jo internet pe mili thi meri life ka itna important part ban gayi? What do you mean ek stranger dheere-dheere meri favourite person to talk to ban gayi?
+
+YK what I love most about myself? MYH BESTIE YAAR. Like what do you mean I have the world's best bestie? Someone jiske saath mein bina soche kuch bhi bol sakti hun, jiske saamne mujhe perfect banne ki zaroorat nahi, jiske saath mein apni sabse stupid baatein bhi share kar sakti hun.
+
+Yaad hai hum pehle kaise matching PFPs rakha karte the? JenLisa wale. You will always be my Jennie and me your Lisa. I swear, those little things might look so ordinary to other people, but mere liye woh humari friendship ka ek alag hi part hain. Kabhi-kabhi bas woh old PFPs yaad aate hain aur sochti hun ki yaar, hum kitne cute the.
+
+I miss those random conversations, those endless talks, those little updates, those stupid jokes and the way we could turn the most random topic into a whole discussion. I miss having a person jise bina kisi reason ke message kar sakun. I miss the comfort of knowing ki chahe kitni bhi random baat ho, there's someone who will listen to myh nonsense.
+
+And honestly, I wish I could go back to some of those nights. Not to change anything, but just to experience them again. To talk to you without knowing that one day things would become complicated. To laugh without worrying about misunderstandings. To enjoy those little moments without realising that someday I would look back and miss them this much.
+
+Fir pata nahi konsa manhoos waqt tha jab mere dimaag mein yeh keeda ghus gaya ki I'm ruining your life. And I started ghosting ya.
+
+I'm really, really sorry for that ghosting and everything else. I never did it to hurt ya. I never wanted to make ya feel unwanted or unimportant. I may have ghosted ya hundreds of times, but honestly, most of the time it was myh own misunderstanding and overthinking.
+
+I used to convince myself that maybe you're better off without me, maybe I'm making your life difficult, maybe you deserve someone better. And instead of talking to ya about what was going on in myh head, I chose to disappear. I know that wasn't fair. You shouldn't have had to keep wondering what went wrong or whether you did something.
+
+I wish I had understood that disappearing doesn't solve anything. I wish I had communicated instead of making ya deal with myh silence.
+
+And I know we've had so many fights and misunderstandings. New Year wala drama, the time when our friendship completed six months and all the other situations. I'm genuinely sorry for myh part in all of them. I wish I had handled things more maturely. I wish I had understood your feelings instead of reacting immediately.
+
+But khair, at least we're here again.
+
+And can we appreciate how many times our friendship has been through difficult phases and somehow we still found our way back to talking? I'm not saying that hurting each other is okay or that we should keep repeating the same mistakes. I just mean that this friendship has meant enough to me that I don't want to take it for granted anymore.
+
+Sometimes I think about how strange life is. We were literally two random people talking about our ex-best friends, and now here I am writing an entire letter about how important that random person became to me.
+
+If someone had told me that night that this girl would become someone I'd write such a long letter for, I probably would've laughed.
+
+I wish you could see yourself through myh eyes for a moment. Maybe then you'd understand why I call you myh bestie so proudly. You're not important to me because you've always been perfect or because we've never fought. You're important because you're YOU. Because of the memories, the conversations, the little things and the person I've come to know through all these years.
+
+I hope you know that you don't have to do something extraordinary to be special to me. Even the smallest things about you matter. Your random messages, your way of talking, your silly reactions, your little updates and all those things that you probably don't even realise I remember.
+
+And please, never think that our friendship was just some online friendship that didn't matter. Distance doesn't make the memories any less real. Those conversations happened. Those laughs were real. The care was real. And you genuinely became a part of myh everyday life.
+
+I don't want us to keep losing each other over misunderstandings. I want us to learn how to communicate, how to listen and how to understand each other even when things get difficult. I want us to celebrate each other's happiness, share our random nonsense and make memories that we'll laugh about years from now.
+
+I can't promise that we'll never fight again, because let's be honest, we're both dramatic idiots. But I can promise that I'll try to handle things better instead of disappearing whenever something goes wrong.
+
+I don't want to just say that I'll never disappoint ya again. I want to actually show ya that I can be a better friend through myh actions.
+
+And one day, when we're both older and busy with our own lives, I hope we randomly find our old conversations and matching PFPs. I hope we laugh at how stupid we were, remember all our inside jokes and realise that those little online conversations became some of our favourite memories.
+
+I hope we never become strangers who know everything about each other's past but have nothing left to say.
+
+I hope we keep finding reasons to talk, even if life gets busy. I hope we never stop sharing random updates. And I hope that even years later, I can still call ya myh bestie without it feeling like a memory from another lifetime.
+
+Aparna, I genuinely don't know what the future holds, but I know I'm grateful that I met ya. Out of all the random people I could've talked to that night, I'm glad it was YOU.
+
+You were never insignificant to me. Our friendship was never meaningless. You became a beautiful part of myh life, and I don't want our difficult moments to erase all the beautiful ones.
+
+I hope life gives ya everything you've ever dreamed of. I hope ya meet wonderful people, achieve all your goals, laugh until your stomach hurts and have the happiest life possible. I hope ya never have to question your worth or wonder whether you're enough. Because you are.
+
+And lastly, I hope we get to make so many more memories together. More matching PFPs, more random conversations, more stupid jokes, more gossip, more birthday wishes and more years of calling each other besties.
+
+I know I'm sounding cringe and corny, but koi na, tu toh meri hi hai. Tere saamne toh weirdo hi rahungi mein. I don't have to act cool around ya, and honestly, that's one of myh favourite things about our friendship.
+
+Happy Birthday, my shawty.
+
+Stay the same crazy person. Never stop being yourself. And please never forget how special you are.
+
+**You will always be my Jennie, and I'll always be your Lisa.**
+
+Lobe ya so so much, idiot.
+
+Mwahhhhh.
+    </p>
+  </div>
+
+  <button onclick="go(8)">NEXT PAGE ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 7: PORTRAIT -->
+
+<section class="page" id="page7">
+<div class="content">
+
+  <div class="eyebrow">A little piece of art</div>
+
+  <h2>Look at <span>you.</span></h2>
+
+  <p class="description">
+    Some people are just meant to be
+    turned into art.
+  </p>
+
+  <img src="potrait.jpg"
+  class="portrait"
+  alt="Aparna's portrait">
+
+  <p class="description">
+    A little portrait for someone who deserves
+    her own little gallery.
+  </p>
+
+  <button onclick="go(8)">CONTINUE ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 8: OPEN WHEN -->
+
+<section class="page" id="page8">
+<div class="content">
+
+  <div class="eyebrow">For every version of you</div>
+
+  <h2>Open <span>when...</span></h2>
+
+  <p class="description">
+    Four letters. Four different moments.
+    Read them whenever you need them.
+  </p>
+
+  <div class="open-grid">
+
+    <div class="open-card" onclick="openWhen(1)">
+      <span class="emoji">♡</span>
+      <p>Open when you are sad</p>
+    </div>
+
+    <div class="open-card" onclick="openWhen(2)">
+      <span class="emoji">✧</span>
+      <p>Open when you doubt yourself</p>
+    </div>
+
+    <div class="open-card" onclick="openWhen(3)">
+      <span class="emoji">🖤</span>
+      <p>Open when you think I'm changed</p>
+    </div>
+
+    <div class="open-card" onclick="openWhen(4)">
+      <span class="emoji">♥</span>
+      <p>Open when you miss me</p>
+    </div>
+
+  </div>
+
+  <button onclick="go(10)">CONTINUE TO MY LETTER ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 9: INDIVIDUAL LETTERS -->
+
+<section class="page" id="page9">
+<div class="content">
+
+  <div class="eyebrow">A letter just for this moment</div>
+
+  <h2 id="whenTitle"><span>For you.</span></h2>
+
+  <div class="letter-card">
+    <h3 id="whenHeading">Dear Aparna,</h3>
+    <p id="whenText"></p>
+  </div>
+
+  <button onclick="go(8)">BACK TO LETTERS</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 10: FEELINGS -->
+
+<section class="page" id="page10">
+<div class="content">
+
+  <div class="eyebrow">Something I've been meaning to say</div>
+
+  <h2>Finally sharing<br>some of my <span>feelings.</span></h2>
+
+  <div class="letter-card">
+    <h3>To my dear Aparna,</h3>
+
+    <p>
+      I don't always know how to put my feelings
+      into words, but today I wanted to try.
+
+      I'm genuinely grateful for the memories,
+      the conversations, the laughter and even
+      the most random moments.
+
+      Sometimes the smallest things become
+      the biggest memories.
+
+      I hope you never question your worth.
+      I hope you always remember that you matter.
+
+      Aparna,
+
+I know I'm not the easiest person to deal with. I get angry over little things, I overthink everything, sometimes I say things I don't even mean, and honestly, I can be a lot to handle. But I hope you know that underneath all that anger, there's a person who is just trying to be understood. And I hope you can be patient with that person sometimes.
+
+Cuz yawr, I genuinely don't know how to explain my life to you. Sometimes I literally laugh at my own life because what else am I supposed to do? It feels like I'm not even allowed to have one peaceful week before life comes up with another reason to make things difficult.
+
+My offline life is so different from what you probably imagine. At school, I'm usually the entertainer. The one who keeps talking, laughing, making everyone laugh, and acting like everything is fine. People probably think I'm always happy because that's the version of me they get to see.
+
+But when I come home, it's a completely different story. I'm often the person everyone takes their anger out on. Sometimes I don't even understand what I've done wrong, but somehow I still end up being the one who gets blamed. I've heard so many hurtful things from the people I wish I could feel safest with. And sometimes things get physical too. I don't think anyone understands how much that hurts, especially when all you ever wanted was to feel loved by them.
+
+And the funniest part is, I don't even know how to explain any of this without making it sound like I'm exaggerating. I've gotten so used to saying 'nvm' after everything that sometimes I don't even realise how much I'm keeping inside.
+
+But Aparna, I want you to know that your friendship has given me moments where I could just be myself. I don't have to be the funny girl, the entertainer, or the person who always has something to say. I can just exist, talk nonsense, be dramatic, get angry, be childish, and still feel like someone wants me around.
+
+I'm not saying you have to fix anything for me. I don't expect you to carry my problems or always know what to say. I just want you to understand that your presence has meant more to me than I probably ever managed to express.
+
+And I'm sorry for the times my anger, overthinking, or misunderstandings hurt you. I'm still learning how to express what I feel without pushing people away. I know I have my flaws, but I genuinely never want you to feel unappreciated.
+
+I hope life is gentle with you, Aparna. I hope you receive the kind of love that never makes you question whether you're wanted. I hope you never have to pretend to be okay just to make other people comfortable. And I hope you always remember that you deserve happiness, even on the days when you don't feel like you do.
+
+Thank you for being a part of my life. Thank you for all the random conversations, the stupid jokes, the matching pfps, the memories, and for being someone I can share a little piece of my world with.
+
+Happy birthday, my shawty.
+
+You deserve the world, and I genuinely hope the world is kind enough to give it to you.
+
+Lobe ya, always.
+    </p>
+  </div>
+
+  <button onclick="go(11)">ONE LAST THING ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 11: THINGS THAT REMIND ME OF YOU -->
+
+<section class="page" id="page11">
+<div class="content">
+
+  <div class="eyebrow">Little things, big memories</div>
+
+  <h2>Things that remind<br>me <span>of you.</span></h2>
+
+  <p class="description">
+    It's funny how random things can suddenly
+    remind us of someone.
+  </p>
+
+  <div class="reminders">
+
+    <div class="reminder">
+      ♡ jennie nd bts
+      <small>Because somehow even the most normal
+      conversations become chaotic.</small>
+    </div>
+
+    <div class="reminder">
+      ✧ any duo
+      <small>Things that nobody else would
+      understand.</small>
+    </div>
+
+    <div class="reminder">
+      ♥ red colour
+      <small>The memories that don't look special
+      to anyone else but mean something to me.</small>
+    </div>
+
+    <div class="reminder">
+      ☆ You being YOU
+      <small>Because there's nobody quite like you.</small>
+    </div>
+
+  </div>
+
+  <button onclick="go(12)">THE FINAL PAGE ♡</button>
+
+</div>
+</section>
+
+
+<!-- PAGE 12: ENDING -->
+
+<section class="page" id="page12">
+<div class="content">
+
+  <div class="symbol">♥</div>
+
+  <div class="eyebrow">And that's a wrap</div>
+
+  <h1>Happy<br><span>Birthday.</span></h1>
+
+  <h2 style="font-size:35px;margin-top:20px;">
+    Aparna ♡
+  </h2>
+
+  <div class="divider"></div>
+
+  <p class="description">
+    One website, countless feelings
+    and hopefully a few new memories.
+
+    <br><br>
+
+    May you laugh louder, dream bigger,
+    love yourself more and make this year
+    absolutely unforgettable.
+
+    <br><br>
+
+    This is not the end of our story.
+    It's just another page.
+
+    <br><br>
+
+    LOVE YOU, MY DARLO.
+  </p>
+
+  <button onclick="celebrate()">CELEBRATE AGAIN ♥</button>
+
+  <p class="description" style="font-size:10px;letter-spacing:3px;">
+    MADE WITH LOVE · JUST FOR YOU
+  </p>
+
+</div>
+</section>
+
+
+<script>
+
+// PAGE NAVIGATION
+
+function go(pageNumber) {
+
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  const target = document.getElementById('page' + pageNumber);
+
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  if (pageNumber === 2) {
+    confetti(60);
+  }
+}
+
+
+// PASSWORD
+
+function checkPassword() {
+
+  const entered = document.getElementById('password').value;
+
+  if (entered === '18110') {
+
+    document.getElementById('passwordError').textContent = '';
+
+    go(2);
+
+  } else {
+
+    document.getElementById('passwordError').textContent =
+      'Wrong password! Try again, Aparna.';
+
+    document.getElementById('password').value = '';
+
+  }
+}
+
+
+// GIFT SELECTION
+
+function chooseGift(number) {
+
+  confetti(60);
+
+  if (number === 1) {
+    go(5);
+  }
+
+  if (number === 2) {
+    go(6);
+  }
+
+  if (number === 3) {
+    go(7);
+  }
+
+}
+
+
+// OPEN WHEN LETTERS
+
+const letters = {
+
+  1: {
+    title: 'Open when you are sad',
+    text: `Hey Aparna,
+
+First of all, sending you the biggest reminder
+that bad days are temporary.
+
+You don't have to pretend to be happy
+all the time. It's okay to have days when
+nothing feels right.
+
+Take a breath, give yourself some time
+and remember that you are so much more
+than one difficult moment.
+
+nd why are ya still reading dis one come to me grull
+im waiting to hear im here to what happened come nd tell mei
+
+Love you. ♡`
+  },
+
+  2: {
+    title: 'Open when you doubt yourself',
+    text: `Dear Aparna,
+
+I wish you could see yourself the way
+the i see ya myh shawty.
+
+You are capable of so many things.
+Don't let a little self-doubt make you
+forget everything you've overcome.
+
+You don't need to have everything figured out.
+You are allowed to learn, grow and change.
+
+Trust yourself a little more.
+
+im here come to me whenever things feels havey
+
+You've got this, shawty. ♥`
+  },
+
+  3: {
+    title: "Open when you think I'm changed",
+    text: `Hey you,
+
+Maybe things feel different sometimes.
+Maybe we're busy, maybe life gets complicated.
+
+But please don't immediately assume
+that every change means someone cares less.
+
+Friendships have different phases.
+People grow and days get busy.
+
+If something ever feels wrong,
+I'd rather we talk about it than
+let misunderstandings grow.
+
+ whenever ya feels like dat just tell me or if i didn't changed 
+mujhe daatna manipulate krna ohkkk myh cutieee
+You matter to me.
+Never forget that. ♡`
+  },
+
+  4: {
+    title: 'Open when you miss me',
+    text: `MY DARLOOO!!
+
+First of all, obviously you miss me.
+I mean, understandable. I'm iconic.
+
+But seriously, I hope this little letter
+makes you smile.
+
+Remember our random conversations,
+our silly jokes and all those moments
+that made absolutely no sense.
+
+Even when we're not together,
+those memories are still ours.
+
+Now stop missing me too much.
+I'm expensive emotional support. ♥`
+  }
+
+};
+
+
+function openWhen(number) {
+
+  document.getElementById('whenTitle').innerHTML =
+    '<span>' + letters[number].title + '</span>';
+
+  document.getElementById('whenHeading').textContent =
+    'Dear Aparna, ♡';
+
+  document.getElementById('whenText').textContent =
+    letters[number].text;
+
+  go(9);
+
+}
+
+
+// CONFETTI
+
+function confetti(amount = 100) {
+
+  const colors = [
+    '#b91f3c',
+    '#ed526d',
+    '#f5a6b6',
+    '#ffffff',
+    '#7f172e'
+  ];
+
+  for (let i = 0; i < amount; i++) {
+
+    const piece = document.createElement('div');
+
+    piece.className = 'confetti';
+
+    piece.style.left = Math.random() * 100 + 'vw';
+
+    piece.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    piece.style.width = (Math.random() * 8 + 4) + 'px';
+
+    piece.style.height = (Math.random() * 10 + 5) + 'px';
+
+    piece.style.borderRadius =
+      Math.random() > .5 ? '50%' : '2px';
+
+    piece.style.animationDuration =
+      (Math.random() * 3 + 3) + 's';
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 7000);
+
+  }
+
+}
+
+
+// FINAL CELEBRATION
+
+function celebrate() {
+
+  confetti(200);
+
+}
+
+</script>
+
+</body>
+</html>
